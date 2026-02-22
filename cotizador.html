@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador de Planos | Facundo Franco</title>
+    <link rel="stylesheet" href="cotizador-style.css">
+</head>
+<body>
+    <div class="form-box">
+        <h2>📏 Cotizador de Planos Técnicos</h2>
+        
+        <label>Tipo de Proyecto</label>
+        <select id="tipo">
+            <option value="15000">Vivienda Unifamiliar</option>
+            <option value="35000">Local Comercial / Gastronómico</option>
+            <option value="60000">Multifamiliar (Edificios)</option>
+        </select>
+
+        <label>Cantidad de Artefactos a declarar</label>
+        <input type="number" id="artefactos" value="1">
+
+        <button onclick="calcularCotizacion()">OBTENER PRESUPUESTO ESTIMADO</button>
+
+        <div id="resultado">
+            <h3>Estimado: <span id="monto"></span></h3>
+            <p>✅ Incluye Garantía Técnica (Gasista 2da Cat.)</p>
+            <hr>
+            <p>📧 ¿Necesitás el plano oficial? Contactame:</p>
+            <a href="https://linkedin.com/in/facundo-nahuel-franco" class="btn-link">Mi LinkedIn</a>
+        </div>
+    </div>
+
+    <script>
+        function calcularCotizacion() {
+            let base = parseFloat(document.getElementById('tipo').value);
+            let art = parseInt(document.getElementById('artefactos').value);
+            let total = base + (art * 2500);
+            
+            document.getElementById('monto').innerText = "$" + total.toLocaleString();
+            document.getElementById('resultado').style.display = "block";
+        }
+    </script>
+</body>
+</html>
